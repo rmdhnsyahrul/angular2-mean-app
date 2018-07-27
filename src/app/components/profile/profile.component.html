@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h2 class="page-header">Welcome <span class="title">{{user.username}}</span></h2>
+  <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="imgcontainer">
+      <img class="image--cover" [src]="user.avatar" alt="preview" (click)="clickImage($event)">
+      <div class="middle">
+        <div class="text">Change Image</div>
+      </div>
+    </div>
+    <div class="custom-file mb-3">
+      <input #imageupload type="file" name="avatar" id="imgupload" class="custom-file-input" (change)="onFileChange($event)" style="display:none">
+    </div>
+    <input type="hidden" class="form-control" required [(ngModel)]="user._id" name="_id">
+    <input type="hidden" class="form-control" required [(ngModel)]="user.avatar" name="avatar">
+    <div class="form-group">
+      <label for="name">Nama</label>
+      <input type="text" class="form-control" required [(ngModel)]="user.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" required [(ngModel)]="user.email" name="email">
+    </div>
+    <!-- <div *ngIf="user">
+      <h2 class="page-header">Welcome <span class="title">{{user.username}}</span></h2>
+      <ul class="list-group">
+        <li class="list-group-item">Name : {{user.name}}</li>
+        <li class="list-group-item">Email : {{user.email}}</li>
+      </ul>
+    </div> -->
+    <input type="submit" class="btn btn-primary btn-block">
+  </form>
+</div>

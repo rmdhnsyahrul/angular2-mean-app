@@ -1,0 +1,42 @@
+.wrapper {
+    padding: 20px;
+}
+.page-header {
+    width: 100%;
+    text-align: center;
+}
+img.image--cover {
+    width: 224px;
+    height: 224px;
+    border-radius: 50%;
+    margin: 20px;
+
+    object-fit: cover;
+    object-position: center right;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    transform: translate(-40%, -10%);
+    -ms-transform: translate(-40%, -10%);
+    text-align: center;
+}
+.imgcontainer {
+    display: inline-block;
+}
+.imgcontainer:hover .image--cover{
+    opacity: 0.3;
+}
+
+.imgcontainer:hover .middle {
+    opacity: 0.5;
+}
+
+.text {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+}

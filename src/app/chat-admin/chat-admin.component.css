@@ -1,0 +1,58 @@
+.messages-box {
+    background: #3f9684 none repeat scroll 0 0;
+    height: 475px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    border-radius: 5px; 
+}
+.border {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    border-top: 1px solid #efefef;
+    text-align: center;
+}
+
+.form {
+    padding-top:6px
+}
+
+.user-list li{
+    background-color: rgba(255, 255, 255, 0.80);
+	padding: 10px;
+	list-style-type: none;
+	margin-bottom: 5px;
+	margin-left: -25px;
+    color: #444444;
+    width: 100% !important;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(172, 172, 172, 0.73);
+    line-height: 1.4;;
+    border-color: solid 0.5px rgba(0, 0, 0, 0.32);
+    clear: both;
+    text-decoration: none;
+    cursor: pointer;
+    left: 0
+}
+
+.selected-user{
+	border-left: solid 3px rgb(2, 39, 35);
+}
+
+/* align text right in conversation container */
+.align-right{
+    text-align: right;
+    padding-right: 10px;
+    list-style: none;
+}
+
+.message-thread li {
+    list-style: none
+}

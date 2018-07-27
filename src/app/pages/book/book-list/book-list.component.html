@@ -1,0 +1,23 @@
+<div class="col-md-6">
+  <h1>Book Catalogue
+    <button type="button" [routerLink]="['/app/books/create']" class="btn btn-default btn-lg pull-right">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true">Add</span>
+    </button>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="60%">Title</th>
+        <th width="30%">Author</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td><a [routerLink]="['/app/books/detail', book._id]" class="btn btn-success">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

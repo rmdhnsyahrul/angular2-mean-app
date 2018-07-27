@@ -1,0 +1,16 @@
+.navbar {
+    margin-bottom: 0px !important;
+}
+.navbar-brand {
+    padding: 5px 15px;
+}
+.navbar-brand>img {
+    display: inline-block;
+    height: 40px;
+}
+.navbar {
+    border-radius: 0!important;
+}
+.navbar-btn {
+    margin: 0;
+}

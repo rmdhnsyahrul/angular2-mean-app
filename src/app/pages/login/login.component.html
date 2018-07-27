@@ -1,0 +1,16 @@
+<div class="jumbotron vertical-center">
+  <div class="container">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+      <h1 class="login-title text-center">Please sign in to continue</h1>
+      <div class="account-wall">
+        <img class="profile-img" src="../assets/images/login-form-img.png" alt="">
+        <form (submit)="onLoginSubmit()" class="form-signin">
+          <input type="text" class="form-control form-control-lg rounded-0" name="username" [(ngModel)]="model.username" #username="ngModel" placeholder="username" required autofocus>
+          <input type="password" class="form-control form-control-lg rounded-0" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="password" required>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+        <a class="text-center new-account" [routerLink]="['/register']">Create an account </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div id="toast-container" class="toast-top-right">
+        <div *ngFor="let alert of alerts.reverse()" class="{{ cssClass(alert) }} fade-in" role="alert">
+            <i class="{{ iconClass(alert) }}"></i>
+            <div class="toast-content">
+                <a class="toast-close-button" (click)="removeAlert(alert)">&times;</a>
+                <div class="toast-title">{{alert.title}}</div>
+                <div class="toast-message">{{alert.message}}</div>
+       </div>
+    </div>

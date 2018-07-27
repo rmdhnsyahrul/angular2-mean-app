@@ -1,0 +1,65 @@
+<!-- <div class="container">
+  user input form container
+  <div id="inputName" class="container">
+      <div class="row">
+          <div class="col-sm-6 col-md-4 col-md-offset-4">
+              <h1 class="text-center login-title">Please sign in to continue</h1>
+              <div class="account-wall">
+                  <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                      alt="">
+                  <form class="form-signin">
+                      <input type="text" class="form-control form-control-lg rounded-0" name="username" [(ngModel)]="model.username" #username="ngModel" placeholder="username" required autofocus>
+                      <input type="password" class="form-control form-control-lg rounded-0" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="password" required>
+                      <button class="btn btn-lg btn-primary btn-block" (click)="login()">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+<div class="container col-sm-12 col-md-12">
+    <h2>Chat - Administrator</h2>
+    <div class="col-sm-4 col-md-4">
+      <div class="border"><h3>User(s) Online</h3></div>
+      <div id="users" class="messages-box">
+        <ul class="user-list">
+            <!-- click event to handle the selection : selectedUser() -->
+            <!-- adding a class to indicate the selection -->
+            <li *ngFor="let user of chatListUsers" (click)="selectedUser(user)">
+                <span class="chat-title text-center">{{ user.person }}</span>
+            </li>
+          </ul>
+      </div>
+      <p>Total user(s) connected :</p>
+    </div>
+    <div class="col-sm-8 col-md-8">
+      <div class="border"><h3>Chat box</h3></div>
+      <div class="message-history messages-box">
+        <div class="massege-container">
+
+            <div *ngIf="selectedUserName; else welcomeContainer">
+                <span class="chat-title">Chatting with {{selectedUserName}}</span>
+
+                <ul class="message-thread">
+                    <li class="list-group" *ngFor="let message of conversation" [class.align-right]="alignMessage(message.person)">
+                            {{ message.message}}
+                    </li>
+                </ul>
+            </div>
+
+            <ng-template #welcomeContainer>
+                <div class="message-header">Pilih user yang online di kolom kiri untuk memulai chat;</div>
+            </ng-template>
+            
+        </div>
+      </div>
+      <form (submit)="sendMessage()" class="form">
+        <div class="input-group">
+          <input id="message-input" [(ngModel)]="msgData.message" name="message" class="form-control" required>
+          <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit" [disabled]="!msgData.roomID"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+</div>

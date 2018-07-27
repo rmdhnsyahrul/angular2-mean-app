@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <app-sidemenu></app-sidemenu>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Popup chat -->
+  <!-- <app-chat></app-chat> -->
+</div>
+<toaster-container [toasterconfig]="toasterOptions"></toaster-container>

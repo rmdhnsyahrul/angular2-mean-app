@@ -1,0 +1,10 @@
+li a {
+  color: #fff; /* or whatever color you prefer */
+}
+
+a.navbar {
+  position: relative;
+  display: flex;
+  left: 150px;
+  top: 50px;
+}

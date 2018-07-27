@@ -1,0 +1,12 @@
+.loader-hidden {
+    visibility: hidden;
+}
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(40,96,144,0.2);
+    z-index:1;
+}

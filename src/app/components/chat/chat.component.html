@@ -1,0 +1,130 @@
+<a id="show-chat-window" href="#" class="chat-button-float" (click)="toogleChatWindow($event)">
+  <i class="fa fa-comments fa-3x"></i>
+</a>
+<div class="popup-box chat-popup" id="qnimate">
+    <div *ngIf="joinned; else joinroom">
+      <div class="popup-head">
+        <div class="popup-head-left pull-left"><img src="../assets/images/skulls.jpg" allt="">
+          <!-- <span class="chat-title">{{ msgData.room }} -->
+          <span class="chat-title">Live Chat
+            <p>Welcome! <b>{{ msgData.person }}</b></p>
+          </span>
+        </div>
+        <div class="popup-head-right pull-right">
+          <button class="chat-header-button pull-right" (click)="logOut()" alt="Logout"><i class="fa fa-power-off"></i></button>
+          <button class="chat-header-button pull-right" (click)="toogleChatWindow($event)"><i class="fa fa-window-minimize"></i></button>
+        </div>
+      </div>
+      <div #scrollMe class="popup-messages">
+        <div class="direct-chat-messages" *ngFor="let c of chats">
+          <!-- used for chat header based on date -->
+          <!-- <div class="chat-box-single-line">
+            <abbr class="timestamp">October 8th, 2015</abbr>
+          </div> -->
+          
+          <!-- Message. Default to the left -->
+          <div class="direct-chat-msg doted-border" *ngIf="c.person===msgData.person; else rightchat">
+            <div class="direct-chat-info clearfix">
+              <span class="direct-chat-name pull-left">{{ c.person }}</span>
+            </div>
+            <!-- /.direct-chat-info -->
+            <i class="fa fa-user-circle-o custom-chat-img"></i>
+            <!-- /.direct-chat-img -->
+            <!-- <img alt="message user image" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="direct-chat-img"> -->
+            <div class="talk-bubble-left tri-left left-top"><p>{{ c.message }}</p></div>
+            <div class="direct-chat-info clearfix">
+              <span class="direct-chat-timestamp pull-right">{{ c.updated_at | date: 'medium' }}</span>
+            </div>
+            <!-- <div class="direct-chat-info clearfix">
+              <span class="direct-chat-img-reply-small pull-left"></span>
+              <span class="direct-chat-reply-name">Singh</span>
+            </div> -->
+            <!-- /.direct-chat-text -->
+          </div>
+          <!-- /.direct-chat-msg -->
+
+          <!-- Mesage to right -->
+          <ng-template #rightchat>
+              <div class="direct-chat-msg doted-border-right">
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name-right pull-right">{{ c.person }}</span>
+                </div>
+                <!-- /.direct-chat-info -->
+                <i class="fa fa-user-circle-o custom-chat-img pull-right"></i>
+                <!-- /.direct-chat-img -->
+                <!-- <img alt="message user image" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="direct-chat-img"> -->
+                <div class="talk-bubble-right tri-right right-top">{{ c.message }}</div>
+                
+                <!-- <div class="direct-chat-text-right">{{ c.message }}</div> -->
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-timestamp pull-left">{{ c.updated_at | date: 'medium' }}</span>
+                </div>
+                <!-- <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-img-reply-small pull-left"></span>
+                  <span class="direct-chat-reply-name">Singh</span>
+                </div> -->
+                <!-- /.direct-chat-text -->
+              </div>
+              <!-- /.direct-chat-msg -->
+
+          </ng-template>
+        </div>
+      </div>
+      
+      <div class="popup-messages-footer">
+        <!-- <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+        <div class="btn-footer">
+          <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
+          <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
+          <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
+          <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+        </div> -->
+        <form (ngSubmit)="sendMessage()" #msgForm="ngForm">
+          <div class="input-group">
+            <input type="hidden" [(ngModel)]="msgData.roomID" name="roomID" />
+            <input type="hidden" [(ngModel)]="msgData.person" name="person" />
+            <!-- <textarea id="btn-input" [(ngModel)]="msgData.message" name="message" class="form-control input-sm" placeholder="Type your message here..." required="true"></textarea> -->
+            <input id="btn-input" type="text" [(ngModel)]="msgData.message" name="message" class="form-control input-sm" placeholder="Type your message here..." required="true" />
+            <span class="input-group-btn">
+              <button class="btn btn-warning btn-sm" id="btn-chat" [disabled]="!msgForm.form.valid">
+                <i class="fa fa-paper-plane"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <ng-template #joinroom>
+      <div class="popup-head radius">
+        <div class="popup-head clearfix">
+          <div class="popup-head-left pull-left">Select Chat Room</div>
+          <div class="popup-head-left pull-right">
+              <button data-widget="remove" id="hide-chat-window" class="chat-header-button pull-right" type="button"><i class="fa fa-window-minimize"></i></button>
+          </div>
+        </div>
+        <form class="popup-head" (ngSubmit)="joinRoom()" #joinForm="ngForm">
+          <div class="form-group">
+            <input type="text" id="nickname" class="form-control" [(ngModel)]="newUser.person" name="nickname" placeholder="Nickname" required="" />
+          </div>
+          <!-- for customer support chat app, room auto generated by npm:uuid after user click join -->
+          <!-- <div class="form-group">
+            <select id="selectedRoom" class="form-control" [(ngModel)]="newUser.room" name="room" required="">
+              <option>Select Room</option>
+              <option value="Javascript">Javascript</option>
+              <option value="Java">Java</option>
+              <option value="Python">Python</option>
+            </select>
+          </div> -->
+
+          <!-- input email(disable)
+          <div class="form-group">
+            <input type="email" id="email" class="form-control" [(ngModel)]="newUser.email" name="email" placeholder="Email" required="" />
+          </div>
+          -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!joinForm.form.valid">Join</button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+  </div>

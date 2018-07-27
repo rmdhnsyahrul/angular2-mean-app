@@ -1,0 +1,220 @@
+/* =================================================== */
+/*              themes for angular material
+/* =================================================== */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* ==================================================
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    perspective: 1500px;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 92vh;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: bottom left;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+    transform: rotateY(100deg);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    font-style: none;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e081';
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    font-family: 'Glyphicons Halflings';
+}
+a[aria-expanded="true"]::before {
+    content: '\e082';
+}
+
+
+ul ul a {
+    /*font-size: 0.9em !important;*/
+    padding-left: 20px !important;
+    background: #6d7fcc;
+}
+
+ul ul ul a {
+    /*font-size: 0.9em !important;*/
+    padding-left: 40px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5 !important;
+}
+
+a.article, a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    /*padding: 20px;
+    min-height: 100vh;*/
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background:transparent;
+    border: none;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 4px;
+    margin: 0 auto;
+    display: block;
+    background: rgba(190,20,1,0.7);
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition-delay: 0.2s;
+}
+
+#sidebarCollapse span:first-of-type {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+#sidebarCollapse span:nth-of-type(2) {
+    opacity: 0;
+}
+#sidebarCollapse span:last-of-type {
+    transform: rotate(-45deg) translate(2px, -2px);
+}
+
+
+#sidebarCollapse.active span {
+    transform: none;
+    opacity: 1;
+    margin: 5px auto;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: 0;
+        transform: none;
+    }
+    #sidebar.active {
+        margin-left: -250px;
+        transform: rotateY(90deg);
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+}
+
+/* Material icons sizing and coloring */
+.material-icons {
+    margin: 10px 20px 20px 10px;
+}
+.material-icons.md-18 {font-size: 18px}
+.material-icons.md-24 {font-size: 24px}
+.material-icons.md-30 {font-size: 30px}
+.material-icons.md-36 {font-size: 36px}
+.material-icons.md-42 {font-size: 42px}
+
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light { color: rgba(51,122,183, 1); }
+.material-icons.md-light.md-inactive { color: rgba(51,122,183, 0.7); }
+
+.material-icons.orange600 { color: #FB8C00; }
+
+/* 
+custom styling for development purpose only 
+*/
+.page-header {
+    margin: 10px 0;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: left;
+}

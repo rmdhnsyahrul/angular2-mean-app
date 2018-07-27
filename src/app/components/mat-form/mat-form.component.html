@@ -1,0 +1,32 @@
+<div class="container-fluid mat-app-background">
+  <h2 class="page-header">Angular Material Form</h2>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Textarea"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <h2 class="page-header">Angular Material Icons</h2>
+    <div class="continer-fluid">
+      <i class="material-icons md-dark md-18">account_circle</i>
+      <i class="material-icons md-light md-24">account_circle</i>
+      <i class="material-icons md-dark md-inactive md-30">account_circle</i>
+      <i class="material-icons md-light md-inactive md-36">account_circle</i>
+      <i class="material-icons md-dark md-42">account_circle</i>
+    </div>
+    <div class="continer-fluid">
+      <i class="material-icons orange600">account_circle</i>
+  </div>
+  </div>
+</div>
